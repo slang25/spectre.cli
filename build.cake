@@ -8,6 +8,7 @@ Task("Build")
     .Does(context => 
 {
     DotNetCoreBuild("./src/Spectre.Cli.sln", new DotNetCoreBuildSettings {
+        ArgumentCustomization = args => args.Append("/bl:build.binlog"),
         Configuration = configuration,
         NoIncremental = context.HasArgument("rebuild"),
         MSBuildSettings = new DotNetCoreMSBuildSettings()
@@ -20,6 +21,7 @@ Task("Test")
     .Does(context => 
 {
     DotNetCoreTest("./src/Spectre.Cli.Tests/Spectre.Cli.Tests.csproj", new DotNetCoreTestSettings {
+        ArgumentCustomization = args => args.Append("/bl:test.binlog"),
         Configuration = configuration,
         NoRestore = true,
         NoBuild = true,
