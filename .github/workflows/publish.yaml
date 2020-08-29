@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-artifact@v1
         if: ${{ always() }}
         with:
-          name: binlogs
+          name: binlogs--${{ matrix.os_name }}
           path: '**/*.binlog'
   
   ###################################################
