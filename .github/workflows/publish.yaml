@@ -54,6 +54,13 @@ jobs:
           dotnet tool restore
           dotnet cake
 
+      - name: Upload binlogs
+        uses: actions/upload-artifact@v1
+        if: ${{ runner.os == 'Windows' }}
+        with:
+          name: binlogs
+          path: '**/*.binlog'
+  
   ###################################################
   # PUBLISH
   ###################################################
