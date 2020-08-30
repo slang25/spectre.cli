@@ -55,7 +55,7 @@ jobs:
           dotnet cake
 
       - name: Upload binlogs
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         if: always() && runner.os == 'Windows'
         with:
           name: binlogs
